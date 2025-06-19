@@ -19,7 +19,7 @@ const About = () => {
           }}>
             <Box
               component="img"
-              src="/images/profile.jpg"
+              src="/PabloMurox/images/profile.jpg"
               alt="Pablo Muro"
               sx={{
                 width: 250,

@@ -46,7 +46,7 @@ export const API_CONFIG = {
 };
 
 export const BACKGROUND = {
-  url: '/images/background.jpg',
+  url: '/PabloMurox/images/background.jpg',
   opacity: 0.6,      // Ajustado para que sea más visible
   brightness: 0.7,   // Ajustado para mejorar la visibilidad
   size: 'cover',

@@ -4,7 +4,7 @@ import { Box } from '@mui/material';
 const TwitchIcon = (props) => {
   return (
     <Box component="img" 
-         src="/images/twitch-icon.svg"
+         src="/PabloMurox/images/twitch-icon.svg"
          {...props}
          sx={{
            ...props.sx,
