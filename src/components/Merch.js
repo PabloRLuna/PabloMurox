@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Grid, Card, CardMedia, CardContent, Typography, Button, Modal, Box } from '@mui/material';
 import { motion } from 'framer-motion';
-import Checkout from './Checkout';
+
 
 const products = [
   {
@@ -121,7 +121,12 @@ const Merch = () => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Checkout product={selectedProduct} />
+          <Typography variant="h5" component="h2" align="center" sx={{ mb: 2, color: '#8a2be2' }}>
+            Carrito en Mantenimiento
+          </Typography>
+          <Typography variant="body1" align="center" sx={{ mb: 2, color: '#ff9800' }}>
+            El sistema de carrito está en mantenimiento. ¡Gracias por tu paciencia!
+          </Typography>
         </Box>
       </Modal>
     </Container>
