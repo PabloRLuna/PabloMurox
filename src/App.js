@@ -128,9 +128,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <ThemeProvider theme={theme}>
       <Router basename={BASE_PATH}>
-        <CssBaseline />
         <TwitchProvider>
           <Layout>
             <Routes>
@@ -141,7 +139,6 @@ function App() {
           </Layout>
         </TwitchProvider>
       </Router>
-    </ThemeProvider>
     </ThemeProvider>
   );
 }

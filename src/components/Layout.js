@@ -10,20 +10,18 @@ const Layout = ({ children }) => {
     <Box sx={{ 
       display: 'flex',
       minHeight: '100vh',
-      bgcolor: 'transparent',
-      flexDirection: 'column'
+      bgcolor: 'background.default',
+      flexDirection: 'row'
     }}>
       {/* Contenido principal */}
       <Box sx={{ 
         flex: 1,
-        overflow: 'hidden',
+        overflow: 'auto',
         pr: { 
           md: isTwitchExpanded ? 32 : 0 
         },
         transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-        display: 'flex',
-        flexDirection: 'column',
-        bgcolor: 'transparent'
+        bgcolor: 'background.default'
       }}>
         {children}
       </Box>
@@ -40,9 +38,10 @@ const Layout = ({ children }) => {
           },
           display: { xs: 'none', md: 'flex' },
           flexDirection: 'column',
-          bgcolor: 'transparent',
+          bgcolor: 'background.paper',
           borderLeft: '1px solid #2a2a2a',
-          transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
+          transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+          zIndex: 1000
         }}
       >
         <TwitchSection />
