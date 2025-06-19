@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Typography, useTheme } from '@mui/material';
 import { motion } from 'framer-motion';
+import { getRoute } from '../utils/base';
 
 const Hero = () => {
   const theme = useTheme();
@@ -33,7 +34,7 @@ const Hero = () => {
           left: 0,
           right: 0,
           bottom: 0,
-          backgroundImage: `url('https://static-cdn.jtvnw.net/jtv_user_pictures/76aa0264-f5a5-4bf9-bfa8-69885ebe634d-profile_banner-480.png')`,
+          backgroundImage: `url('${process.env.PUBLIC_URL}${getRoute('/images/banner.jpg')}')`,
           backgroundSize: '100% auto',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',

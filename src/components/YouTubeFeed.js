@@ -5,8 +5,10 @@ import { styled } from '@mui/material/styles';
 import { COLORS, TRANSITIONS, TYPOGRAPHY, API_CONFIG } from '../constants/styles';
 import StatusPaper from './StatusPaper';
 
+import { getRoute } from '../utils/base';
+
 const SectionBackground = styled(Box)({
-  backgroundImage: `url('https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/b0e5cc656a0bdb30574a736ab00c2f488c35c114-1280x720.jpg?auto=format&fit=fill&q=80&w=1082')`,
+  backgroundImage: `url('${process.env.PUBLIC_URL}${getRoute('/images/background.jpg')}')`,
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   backgroundRepeat: 'no-repeat',
