@@ -143,8 +143,6 @@ function App() {
             <Route path={getRoute('/')} element={<Home />} />
             <Route path={getRoute('/about')} element={<About />} />
             <Route path={getRoute('/contact')} element={<Contact />} />
-            <Route path={getRoute('/portfolio')} element={<Portfolio />} />
-            <Route path={getRoute('/merch')} element={<Merch />} />
           </Routes>
         </Layout>
       </Router>
