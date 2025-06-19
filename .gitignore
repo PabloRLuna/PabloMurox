@@ -11,6 +11,3 @@ build/
 *.der
 *.cer
 *.pkcs12
-*.pfx
-*.der
-*.cer

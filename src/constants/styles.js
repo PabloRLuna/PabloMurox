@@ -31,11 +31,7 @@ export const TYPOGRAPHY = {
 
 export const API_CONFIG = {
   youtube: {
-<<<<<<< HEAD
-    baseUrl: 'https://api.pablorluna.com/api/youtube',
-=======
     baseUrl: 'http://localhost:5000/api/youtube',
->>>>>>> 6dc8e1b95222d49a46cdc2d086d8c023cfef159a
     endpoints: {
       videos: '/videos'
     }
@@ -50,11 +46,7 @@ export const API_CONFIG = {
 };
 
 export const BACKGROUND = {
-<<<<<<< HEAD
-  url: '/PabloMurox/images/background.jpg',
-=======
   url: 'https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/b0e5cc656a0bdb30574a736ab00c2f488c35c114-1280x720.jpg?auto=format&fit=fill&q=80&w=1082',
->>>>>>> 6dc8e1b95222d49a46cdc2d086d8c023cfef159a
   opacity: 0.6,      // Ajustado para que sea más visible
   brightness: 0.7,   // Ajustado para mejorar la visibilidad
   size: 'cover',

@@ -2,20 +2,19 @@ import React, { useContext } from 'react';
 import { Container, Box } from '@mui/material';
 import YouTubeFeed from './YouTubeFeed';
 import VideoSectionTitle from './VideoSectionTitle';
-import Hero from './Hero';
-import Footer from './Footer';
 import { TwitchContext } from '../contexts/TwitchContext';
 
+
+
+
 const Home = () => {
-  const { isTwitchExpanded } = useContext(TwitchContext);
+  useContext(TwitchContext);
 
   return (
-    <Container maxWidth="lg" sx={{ py: 4 }}>
-      <Hero />
-      <Box sx={{ mt: 4 }}>
-        <VideoSectionTitle title="Videos Recientes" />
-        <YouTubeFeed />
-      </Box>
+    <>
+      <Container maxWidth="lg" sx={{ 
+        mt: 4,
+        display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
@@ -34,10 +33,6 @@ const Home = () => {
           <YouTubeFeed />
         </Box>
       </Container>
-<<<<<<< HEAD
-      <Footer />
-=======
->>>>>>> 6dc8e1b95222d49a46cdc2d086d8c023cfef159a
     </>
   );
 };

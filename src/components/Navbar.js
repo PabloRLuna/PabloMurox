@@ -3,10 +3,6 @@ import { AppBar, Toolbar, Typography, Box } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 import { Twitter as TwitterIcon, Instagram as InstagramIcon, YouTube as YouTubeIcon } from '@mui/icons-material';
 import TwitchIcon from './icons/TwitchIcon';
-<<<<<<< HEAD
-import { getRoute } from '../utils/base';
-=======
->>>>>>> 6dc8e1b95222d49a46cdc2d086d8c023cfef159a
 import StyledButton from './StyledButton';
 
 const Navbar = () => {
@@ -22,11 +18,7 @@ const Navbar = () => {
           <Typography
             variant="h6"
             component={RouterLink}
-<<<<<<< HEAD
-            to={getRoute('/')}
-=======
             to="/"
->>>>>>> 6dc8e1b95222d49a46cdc2d086d8c023cfef159a
             sx={{
               textDecoration: 'none',
               color: '#8a2be2',
@@ -62,11 +54,7 @@ const Navbar = () => {
           </StyledButton>
           <StyledButton
             component={RouterLink}
-<<<<<<< HEAD
-            to={getRoute('/about')}
-=======
             to="/about"
->>>>>>> 6dc8e1b95222d49a46cdc2d086d8c023cfef159a
             sx={{
               fontSize: '1.2rem',
               fontWeight: 400,
@@ -83,11 +71,7 @@ const Navbar = () => {
 
           <StyledButton
             component={RouterLink}
-<<<<<<< HEAD
-            to={getRoute('/contact')}
-=======
             to="/contact"
->>>>>>> 6dc8e1b95222d49a46cdc2d086d8c023cfef159a
             sx={{
               fontSize: '1.2rem',
               fontWeight: 400,

@@ -20,11 +20,7 @@ module.exports = function(app) {
   app.use(
     '/api/youtube',
     createProxyMiddleware({
-<<<<<<< HEAD
-      target: 'https://api.pablorluna.com',
-=======
       target: 'http://localhost:5000',
->>>>>>> 6dc8e1b95222d49a46cdc2d086d8c023cfef159a
       changeOrigin: true,
       secure: false,
       onProxyRes: function(proxyRes, req, res) {
