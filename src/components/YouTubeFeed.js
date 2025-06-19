@@ -131,18 +131,14 @@ const YouTubeFeed = () => {
           position: 'relative', 
           width: '100%',
           maxWidth: '100%',
-          justifyContent: 'center'
+          justifyContent: 'center',
+          zIndex: 1
         }}>
           {loading ? (
             <Grid item xs={12}>
               <StatusPaper 
                 status="loading" 
                 message="Cargando videos..."
-                sx={{
-                  fontFamily: '"Bloomer", "Roboto", "Helvetica", "Arial", sans-serif',
-                  fontSize: '1.2rem',
-                  fontWeight: 400
-                }}
               />
             </Grid>
           ) : error ? (
@@ -150,11 +146,6 @@ const YouTubeFeed = () => {
               <StatusPaper 
                 status="error" 
                 message={error}
-                sx={{
-                  fontFamily: '"Bloomer", "Roboto", "Helvetica", "Arial", sans-serif',
-                  fontSize: '1.2rem',
-                  fontWeight: 400
-                }}
               />
             </Grid>
           ) : videos.length === 0 ? (
@@ -163,11 +154,6 @@ const YouTubeFeed = () => {
                 status="empty" 
                 message="No se encontraron videos. Por favor, inténtalo de nuevo más tarde."
                 secondaryMessage="(Los shorts de YouTube no se muestran en esta sección)"
-                sx={{
-                  fontFamily: '"Bloomer", "Roboto", "Helvetica", "Arial", sans-serif',
-                  fontSize: '1.2rem',
-                  fontWeight: 400
-                }}
               />
             </Grid>
           ) : (
