@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { TwitchProvider } from './contexts/TwitchContext';
+import { getRoute } from './utils/base';
 import './index.css';
 
 // Components
@@ -130,26 +131,26 @@ const theme = createTheme({
   },
 });
 
-
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <TwitchProvider>
-        <Router>
-          <Background />
-          <Navbar />
-          <Hero />
-          <Layout>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/estrategias" element={<Portfolio />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/merch" element={<Merch />} />
-            </Routes>
-            <Footer />
-          </Layout>
+        <Router basename={BASE_PATH}>
+          <CssBaseline />
+          <ThemeProvider theme={theme}>
+            <TwitchProvider>
+              <Layout>
+                <Routes>
+                  <Route path={getRoute('/')} element={<Home />} />
+                  <Route path={getRoute('/about')} element={<About />} />
+                  <Route path={getRoute('/contact')} element={<Contact />} />
+                  <Route path={getRoute('/portfolio')} element={<Portfolio />} />
+                  <Route path={getRoute('/merch')} element={<Merch />} />
+                </Routes>
+              </Layout>
+            </TwitchProvider>
+          </ThemeProvider>
         </Router>
       </TwitchProvider>
     </ThemeProvider>
