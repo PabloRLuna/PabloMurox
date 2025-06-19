@@ -19,7 +19,7 @@ const About = () => {
           }}>
             <Box
               component="img"
-              src="https://yt3.googleusercontent.com/3z-aCi2fTGf14GCYvyL20uUP3MY2nc8LhY1Bcw8ZL_LB_P6V_NBrNl6rbW22aMWq_f86jJETJg=s900-c-k-c0x00ffffff-no-rj"
+              src="/images/profile.jpg"
               alt="Pablo Muro"
               sx={{
                 width: 250,

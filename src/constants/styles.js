@@ -46,7 +46,7 @@ export const API_CONFIG = {
 };
 
 export const BACKGROUND = {
-  url: 'https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/b0e5cc656a0bdb30574a736ab00c2f488c35c114-1280x720.jpg?auto=format&fit=fill&q=80&w=1082',
+  url: '/images/background.jpg',
   opacity: 0.6,      // Ajustado para que sea más visible
   brightness: 0.7,   // Ajustado para mejorar la visibilidad
   size: 'cover',
