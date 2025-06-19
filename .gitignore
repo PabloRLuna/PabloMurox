@@ -11,26 +11,6 @@ build/
 *.der
 *.cer
 *.pkcs12
-<<<<<<< HEAD
-*.p12
 *.pfx
 *.der
 *.cer
-*.pkcs12
-*.p12
-*.pfx
-*.der
-*.cer
-*.pkcs12
-*.p12
-*.pfx
-*.der
-*.cer
-*.pkcs12
-*.p12
-*.pfx
-*.der
-*.cer
-*.pkcs12
-=======
->>>>>>> 6dc8e1b95222d49a46cdc2d086d8c023cfef159a
