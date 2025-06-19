@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Grid, Card, CardMedia, CardContent, Typography, Button, Modal, Box } from '@mui/material';
 import { motion } from 'framer-motion';
-import Checkout from './Checkout';
+
 
 const products = [
   {
@@ -48,18 +48,6 @@ const style = {
 };
 
 const Merch = () => {
-  const [open, setOpen] = React.useState(false);
-  const [selectedProduct, setSelectedProduct] = React.useState(null);
-
-  const handleOpen = (product) => {
-    setSelectedProduct(product);
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   return (
     <Container maxWidth="lg" sx={{ py: 8, bgcolor: '#1a1a1a' }}>
       <Typography variant="h2" component="h1" gutterBottom align="center" sx={{ color: '#8a2be2' }}>
@@ -97,7 +85,7 @@ const Merch = () => {
                     variant="contained"
                     color="primary"
                     fullWidth
-                    onClick={() => handleOpen(product)}
+                    disabled
                     sx={{
                       bgcolor: '#8a2be2',
                       '&:hover': {

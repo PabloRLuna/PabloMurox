@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Card, Typography, Grid } from '@mui/material';
-import { motion } from 'framer-motion';
 import { styled } from '@mui/material/styles';
-import { COLORS, TRANSITIONS, TYPOGRAPHY, API_CONFIG } from '../constants/styles';
-import StatusPaper from './StatusPaper';
+import { COLORS, TRANSITIONS, API_CONFIG } from '../constants/styles';
 
 const SectionBackground = styled(Box)({
   backgroundImage: `url('https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/b0e5cc656a0bdb30574a736ab00c2f488c35c114-1280x720.jpg?auto=format&fit=fill&q=80&w=1082')`,
@@ -48,7 +46,6 @@ const VideoImage = styled('img')({
   width: '100%',
   height: '100%',
   objectFit: 'cover',
-  borderRadius: 2
 });
 
 const VideoOverlay = styled(Box)({
@@ -63,46 +60,121 @@ const VideoOverlay = styled(Box)({
   backgroundColor: 'transparent'
 });
 
-const TFT_FONT = {
-  fontFamily: "'League Gothic', sans-serif",
-  textTransform: 'uppercase',
+const VideoTitle = styled(Typography)({
+  color: COLORS.primary,
   fontWeight: 'bold',
-  letterSpacing: '0.05em'
-};
+  marginBottom: '8px',
+  fontFamily: '"Bloomer", "Roboto", "Helvetica", "Arial", sans-serif'
+});
+
+const VideoDescription = styled(Typography)({
+  color: COLORS.text,
+  marginBottom: '16px',
+  fontFamily: '"Bloomer", "Roboto", "Helvetica", "Arial", sans-serif'
+});
+
+const VideoDate = styled(Typography)({
+  color: COLORS.secondary,
+  fontSize: '0.875rem',
+  fontFamily: '"Bloomer", "Roboto", "Helvetica", "Arial", sans-serif'
+});
+
+const VideoDuration = styled(Typography)({
+  color: COLORS.secondary,
+  fontSize: '0.875rem',
+  fontFamily: '"Bloomer", "Roboto", "Helvetica", "Arial", sans-serif'
+});
+
+const VideoViews = styled(Typography)({
+  color: COLORS.secondary,
+  fontSize: '0.875rem',
+  fontFamily: '"Bloomer", "Roboto", "Helvetica", "Arial", sans-serif'
+});
+
+const VideoChannel = styled(Typography)({
+  color: COLORS.secondary,
+  fontSize: '0.875rem',
+  fontFamily: '"Bloomer", "Roboto", "Helvetica", "Arial", sans-serif'
+});
+
+const VideoStats = styled(Box)({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '16px',
+  marginBottom: '16px',
+  fontFamily: '"Bloomer", "Roboto", "Helvetica", "Arial", sans-serif'
+});
+
+const VideoInfo = styled(Box)({
+  padding: '16px',
+  fontFamily: '"Bloomer", "Roboto", "Helvetica", "Arial", sans-serif'
+});
+
+const VideoGrid = styled(Grid)({
+  minHeight: '100vh',
+  padding: '32px',
+  fontFamily: '"Bloomer", "Roboto", "Helvetica", "Arial", sans-serif'
+});
+
+const SectionTitle = styled(Typography)({
+  ...API_CONFIG.TYPOGRAPHY.tft,
+  color: COLORS.primary,
+  marginBottom: '32px',
+  fontFamily: '"Bloomer", "Roboto", "Helvetica", "Arial", sans-serif'
+});
+
+const LoadingSpinner = styled(Box)({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  minHeight: '60vh',
+  fontFamily: '"Bloomer", "Roboto", "Helvetica", "Arial", sans-serif'
+});
+
+const ErrorBox = styled(Box)({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  minHeight: '60vh',
+  fontFamily: '"Bloomer", "Roboto", "Helvetica", "Arial", sans-serif'
+});
+
+const ErrorTypography = styled(Typography)({
+  color: COLORS.error,
+  textAlign: 'center',
+  fontFamily: '"Bloomer", "Roboto", "Helvetica", "Arial", sans-serif'
+});
 
 const YouTubeFeed = () => {
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const API_BASE_URL = 'https://api.pablorluna.com';
-  const API_VIDEOS_ENDPOINT = '/api/youtube/videos';
-
   useEffect(() => {
     const fetchVideos = async () => {
       try {
-        const response = await fetch(`${API_BASE_URL}${API_VIDEOS_ENDPOINT}`, {
+        const response = await fetch(`${API_CONFIG.youtube.baseUrl}${API_CONFIG.youtube.endpoints.videos}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'
           }
         });
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          const errorData = await response.json().catch(() => {});
+          throw new Error(`Error ${response.status}: ${errorData?.error || 'Error al obtener los videos'}`);
         }
         const data = await response.json();
-        setVideos(data);
+        
+        console.log('Respuesta del servidor:', data);
+        
+        // Verificar si la respuesta tiene la estructura esperada
         if (!data.videos || !Array.isArray(data.videos)) {
           throw new Error(`Estructura de datos inválida: ${JSON.stringify(data)}`);
         }
-        
-        console.log('Videos recibidos:', data.videos);
-        
         setVideos(data.videos);
-        setError(null);
       } catch (error) {
         console.error('Error fetching YouTube videos:', error);
-        setError('Error al cargar los videos. Por favor, inténtalo de nuevo más tarde.');
+        setError(error.message);
       } finally {
         setLoading(false);
       }
@@ -111,108 +183,70 @@ const YouTubeFeed = () => {
     fetchVideos();
   }, []);
 
+  if (loading) {
+    return (
+      <LoadingSpinner>
+        <Typography variant="h5" sx={{ color: COLORS.primary }}>
+          Cargando videos...
+        </Typography>
+      </LoadingSpinner>
+    );
+  }
+
+  if (error) {
+    return (
+      <ErrorBox>
+        <ErrorTypography variant="h5">
+          {error}
+        </ErrorTypography>
+      </ErrorBox>
+    );
+  }
+
   return (
-    <>
+    <Box sx={{ position: 'relative' }}>
       <SectionBackground />
-      <Box sx={{ 
-        py: 1, 
-        bgcolor: 'transparent',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        width: '100%',
-        maxWidth: '100%'
-      }}>
-
-        
-        <Grid container spacing={4} sx={{ 
-          mt: 0, 
-          position: 'relative', 
-          width: '100%',
-          maxWidth: '100%',
-          justifyContent: 'center'
-        }}>
-          {loading ? (
-            <Grid item xs={12}>
-              <StatusPaper 
-                status="loading" 
-                message="Cargando videos..."
-                sx={{
-                  fontFamily: '"Bloomer", "Roboto", "Helvetica", "Arial", sans-serif',
-                  fontSize: '1.2rem',
-                  fontWeight: 400
-                }}
-              />
+      <CardContainer>
+        <VideoGrid container spacing={4}>
+          <Grid item xs={12}>
+            <SectionTitle variant="h4">
+              Últimos Vídeos
+            </SectionTitle>
+          </Grid>
+          {videos.map((video) => (
+            <Grid item xs={12} sm={6} md={4} key={video.id}>
+              <VideoLink href={`https://youtube.com/watch?v=${video.id}`} target="_blank" rel="noopener noreferrer">
+                <VideoCard>
+                  <VideoImage src={video.thumbnail} alt={video.title} />
+                  <VideoInfo>
+                    <VideoTitle variant="h6">
+                      {video.title}
+                    </VideoTitle>
+                    <VideoDescription variant="body2">
+                      {video.description}
+                    </VideoDescription>
+                    <VideoStats>
+                      <VideoChannel variant="body2">
+                        {video.channel}
+                      </VideoChannel>
+                      <VideoViews variant="body2">
+                        {video.views} vistas
+                      </VideoViews>
+                      <VideoDuration variant="body2">
+                        {video.duration}
+                      </VideoDuration>
+                      <VideoDate variant="body2">
+                        {video.date}
+                      </VideoDate>
+                    </VideoStats>
+                  </VideoInfo>
+                </VideoCard>
+              </VideoLink>
             </Grid>
-          ) : error ? (
-            <Grid item xs={12}>
-              <StatusPaper 
-                status="error" 
-                message={error}
-                sx={{
-                  fontFamily: '"Bloomer", "Roboto", "Helvetica", "Arial", sans-serif',
-                  fontSize: '1.2rem',
-                  fontWeight: 400
-                }}
-              />
-            </Grid>
-          ) : videos.length === 0 ? (
-            <Grid item xs={12}>
-              <StatusPaper 
-                status="empty" 
-                message="No se encontraron videos. Por favor, inténtalo de nuevo más tarde."
-                secondaryMessage="(Los shorts de YouTube no se muestran en esta sección)"
-                sx={{
-                  fontFamily: '"Bloomer", "Roboto", "Helvetica", "Arial", sans-serif',
-                  fontSize: '1.2rem',
-                  fontWeight: 400
-                }}
-              />
-            </Grid>
-          ) : (
-            videos.map((video, index) => (
-              <Grid item xs={12} sm={6} md={6} key={video.id}>
-                <motion.div whileHover={TRANSITIONS.hover} transition={TRANSITIONS.default}>
-                  <VideoCard className="tft-card">
-                    <VideoLink 
-                      href={`https://youtube.com/watch?v=${video.id}`} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                    >
-                      <CardContainer>
-                        <VideoImage
-                          src={video.thumbnail}
-                          alt={`Vídeo de YouTube: ${video.title}`}
-                        />
-                        <VideoOverlay>
-                          <Box
-                            sx={{
-                              p: 2,
-                              bgcolor: 'rgba(0, 0, 0, 0.7)'
-                            }}
-                          >
-                            <Typography variant="h6" sx={{
-                              color: COLORS.text,
-                              mb: 1,
-                              fontFamily: '"Bloomer", "Roboto", "Helvetica", "Arial", sans-serif',
-                              fontSize: '1.2rem',
-                              fontWeight: 400
-                            }}>
-                              {video.title}
-                            </Typography>
-
-                          </Box>
-                        </VideoOverlay>
-                      </CardContainer>
-                    </VideoLink>
-                  </VideoCard>
-                </motion.div>
-              </Grid>
-            ))
-          )}
-        </Grid>
-      </Box>
-    </>
+          ))}
+        </VideoGrid>
+      </CardContainer>
+    </Box>
   );
 };
 
