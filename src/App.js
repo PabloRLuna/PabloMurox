@@ -19,7 +19,7 @@ import Background from './components/Background';
 
 // Usar el tema creado en theme.js
 import theme from './theme';
-import '@fontsource/league-gothic';
+
 
 function App() {
   return (
