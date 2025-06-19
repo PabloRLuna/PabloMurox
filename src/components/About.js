@@ -41,7 +41,9 @@ const About = () => {
                 textAlign: 'center',
                 fontFamily: '"Bloomer", "Roboto", "Helvetica", "Arial", sans-serif',
                 fontSize: '2.5rem',
-                fontWeight: 400
+                fontWeight: 400,
+                textTransform: 'uppercase',
+                letterSpacing: '0.2em'
               }}>
                ⭐ 𝐁𝐈𝐄𝐍𝐕𝐄𝐍𝐈𝐃@ ⭐
               </Typography>
