@@ -2,7 +2,7 @@ export const getYouTubeVideos = async () => {
   try {
     const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
     const CHANNEL_ID = 'UCxjbXfKxTv_iwTas3qSq7VQ'; // ID del canal @pablomurox
-    const API_URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${CHANNEL_ID}&maxResults=3&order=date&type=video&key=${API_KEY}`;
+    const API_URL = `https://www.googleapis.com/youtube/v3/search?part=snippet,statistics&channelId=${CHANNEL_ID}&maxResults=15&order=date&type=video&key=${API_KEY}`;
     
     const response = await fetch(API_URL, {
       method: 'GET',
@@ -21,7 +21,42 @@ export const getYouTubeVideos = async () => {
       throw new Error('No se encontraron videos en el canal');
     }
 
-    const videos = data.items.map(item => ({
+    // Obtener los detalles de los videos para filtrar por duración
+    const videoIds = data.items.map(item => item.id.videoId).join(',');
+    const detailsUrl = `https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=${videoIds}&key=${API_KEY}`;
+    const detailsResponse = await fetch(detailsUrl, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    if (!detailsResponse.ok) {
+      throw new Error(`HTTP error! status: ${detailsResponse.status}`);
+    }
+
+    const detailsData = await detailsResponse.json();
+    
+    // Filtrar videos que duren más de 1 minuto
+    const filteredVideos = data.items.filter(item => {
+      const videoDetails = detailsData.items.find(v => v.id === item.id.videoId);
+      if (!videoDetails) return false;
+      
+      // Convertir duración ISO 8601 a segundos
+      const duration = videoDetails.contentDetails.duration;
+      const matches = duration.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
+      if (!matches) return false;
+      
+      const hours = parseInt(matches[1]) || 0;
+      const minutes = parseInt(matches[2]) || 0;
+      const seconds = parseInt(matches[3]) || 0;
+      const totalSeconds = hours * 3600 + minutes * 60 + seconds;
+      
+      return totalSeconds >= 60; // Solo videos de 1 minuto o más
+    });
+
+    // Tomar los primeros 3 videos que cumplen el criterio
+    const videos = filteredVideos.slice(0, 3).map(item => ({
       id: item.id.videoId,
       title: item.snippet.title,
       thumbnail: item.snippet.thumbnails.high.url,
