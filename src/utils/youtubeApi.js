@@ -2,7 +2,7 @@ export const getYouTubeVideos = async () => {
   try {
     const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
     const CHANNEL_ID = 'UCxjbXfKxTv_iwTas3qSq7VQ'; // ID del canal @pablomurox
-    const API_URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${CHANNEL_ID}&maxResults=15&order=date&type=video&key=${API_KEY}`;
+    const API_URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCxjbXfKxTv_iwTas3qSq7VQ&maxResults=15&order=date&type=video&key=AIzaSyAZST3WNEMJoCMDRvwWGBSTPtoL3Ll72wU`;
     
     const response = await fetch(API_URL, {
       method: 'GET',
