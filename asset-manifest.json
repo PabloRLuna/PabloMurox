@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/PabloMurox/static/css/main.2f846c08.css",
+    "main.js": "/PabloMurox/static/js/main.7bb10133.js",
+    "static/media/league-gothic-latin-400-normal.woff": "/PabloMurox/static/media/league-gothic-latin-400-normal.c164322b69bd228927d5.woff",
+    "static/media/league-gothic-latin-400-normal.woff2": "/PabloMurox/static/media/league-gothic-latin-400-normal.a210dfcf47af9a1be603.woff2",
+    "static/media/league-gothic-latin-ext-400-normal.woff": "/PabloMurox/static/media/league-gothic-latin-ext-400-normal.2f01cce590416e4c83f1.woff",
+    "static/media/league-gothic-latin-ext-400-normal.woff2": "/PabloMurox/static/media/league-gothic-latin-ext-400-normal.2d839c49696db8d4d3fe.woff2",
+    "static/media/league-gothic-vietnamese-400-normal.woff": "/PabloMurox/static/media/league-gothic-vietnamese-400-normal.a96e5194d7c7d9f413c0.woff",
+    "static/media/league-gothic-vietnamese-400-normal.woff2": "/PabloMurox/static/media/league-gothic-vietnamese-400-normal.3242447154d797027473.woff2",
+    "index.html": "/PabloMurox/index.html",
+    "main.2f846c08.css.map": "/PabloMurox/static/css/main.2f846c08.css.map",
+    "main.7bb10133.js.map": "/PabloMurox/static/js/main.7bb10133.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2f846c08.css",
+    "static/js/main.7bb10133.js"
+  ]
+}
