@@ -128,7 +128,7 @@ const About = () => {
               textDecoration: 'none',
               color: '#ff6b00',
               fontWeight: 'bold',
-              fontFamily: '"League Gothic", "Roboto", "Helvetica", "Arial", sans-serif',
+              fontFamily: '"Bloomer", "Roboto", "Helvetica", "Arial", sans-serif',
               fontSize: '2rem',
               display: 'flex',
               alignItems: 'center',
@@ -140,7 +140,9 @@ const About = () => {
               backgroundColor: 'rgba(255, 255, 255, 0.1)',
               backdropFilter: 'blur(10px)',
               border: '1px solid rgba(255, 255, 255, 0.1)',
-              width: '100%'
+              width: '100%',
+              textTransform: 'uppercase',
+              letterSpacing: '0.1em'
             }}>
               <span role="img" aria-label="YouTube">📺</span>
               Video diario con las mejores compos del meta y guías para mejorar en TFT.
@@ -149,7 +151,7 @@ const About = () => {
               textDecoration: 'none',
               color: '#7289da',
               fontWeight: 'bold',
-              fontFamily: '"League Gothic", "Roboto", "Helvetica", "Arial", sans-serif',
+              fontFamily: '"Bloomer", "Roboto", "Helvetica", "Arial", sans-serif',
               fontSize: '2rem',
               display: 'flex',
               alignItems: 'center',
@@ -161,7 +163,9 @@ const About = () => {
               backgroundColor: 'rgba(255, 255, 255, 0.1)',
               backdropFilter: 'blur(10px)',
               border: '1px solid rgba(255, 255, 255, 0.1)',
-              width: '100%'
+              width: '100%',
+              textTransform: 'uppercase',
+              letterSpacing: '0.1em'
             }}>
               <span role="img" aria-label="Discord">🎮</span>
               Tenemos una bonita comunidad, compartimos todo por Discord
