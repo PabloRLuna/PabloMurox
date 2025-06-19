@@ -94,7 +94,10 @@ const About = () => {
                 textAlign: 'center', 
                 color: 'text.primary',
                 fontSize: '1.2rem',
-                mb: 4
+                mb: 4,
+                fontFamily: '"Bloomer", "Roboto", "Helvetica", "Arial", sans-serif',
+                textTransform: 'uppercase',
+                letterSpacing: '0.1em'
               }}>
                 ⚡ 𝐓𝐎𝐃𝐀𝐒 𝐋𝐀𝐒 𝐃𝐎𝐍𝐀𝐂𝐈𝐎𝐍𝐄𝐒 𝐈𝐑Á𝐍 𝐃𝐄𝐒𝐓𝐈𝐍𝐀𝐃𝐀𝐒 𝐀 𝐌𝐄𝐉𝐎𝐑𝐀𝐑 𝐄𝐋 𝐃𝐈𝐑𝐄𝐂𝐓𝐎
                 <br />
