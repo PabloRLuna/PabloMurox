@@ -1,7 +1,10 @@
 import React, { useContext } from 'react';
 import { Box } from '@mui/material';
 import TwitchSection from './TwitchSection';
+<<<<<<< HEAD
 import Navbar from './Navbar';
+=======
+>>>>>>> 6dc8e1b95222d49a46cdc2d086d8c023cfef159a
 import { TwitchContext } from '../contexts/TwitchContext';
 
 const Layout = ({ children }) => {
@@ -11,11 +14,17 @@ const Layout = ({ children }) => {
     <Box sx={{ 
       display: 'flex',
       minHeight: '100vh',
+<<<<<<< HEAD
       bgcolor: 'background.default'
+=======
+      bgcolor: 'transparent',
+      flexDirection: 'column'
+>>>>>>> 6dc8e1b95222d49a46cdc2d086d8c023cfef159a
     }}>
       {/* Contenido principal */}
       <Box sx={{ 
         flex: 1,
+<<<<<<< HEAD
         bgcolor: 'background.default'
       }}>
         <Navbar />
@@ -26,6 +35,18 @@ const Layout = ({ children }) => {
         }}>
           {children}
         </Box>
+=======
+        overflow: 'hidden',
+        pr: { 
+          md: isTwitchExpanded ? 32 : 0 
+        },
+        transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+        display: 'flex',
+        flexDirection: 'column',
+        bgcolor: 'transparent'
+      }}>
+        {children}
+>>>>>>> 6dc8e1b95222d49a46cdc2d086d8c023cfef159a
       </Box>
 
       {/* TwitchSection fija a la derecha */}
@@ -40,9 +61,15 @@ const Layout = ({ children }) => {
           },
           display: { xs: 'none', md: 'flex' },
           flexDirection: 'column',
+<<<<<<< HEAD
           bgcolor: 'background.paper',
           borderLeft: '1px solid #2a2a2a',
           zIndex: 1000
+=======
+          bgcolor: 'transparent',
+          borderLeft: '1px solid #2a2a2a',
+          transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
+>>>>>>> 6dc8e1b95222d49a46cdc2d086d8c023cfef159a
         }}
       >
         <TwitchSection />

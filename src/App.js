@@ -4,7 +4,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { TwitchProvider } from './contexts/TwitchContext';
 import { getRoute, BASE_PATH } from './utils/base';
-import './index.css';
+import '@fontsource/league-gothic';
 
 // Components
 import Home from './components/Home';
@@ -53,56 +53,32 @@ const theme = createTheme({
       textTransform: 'uppercase',
     },
     body1: {
-      lineHeight: 1.6,
-      textTransform: 'uppercase',
-      letterSpacing: '0.1em',
+      letterSpacing: '0.05em',
     },
     body2: {
-      lineHeight: 1.6,
-      textTransform: 'uppercase',
-      letterSpacing: '0.1em',
+      letterSpacing: '0.05em',
     },
   },
   palette: {
     primary: {
-      main: '#8a2be2',
-      light: '#a868e8',
-      dark: '#6b00b4',
+      main: '#8B005D',
+      light: '#FF69B4',
+      dark: '#4B0082',
     },
     secondary: {
-      main: '#ff9800',
-      light: '#ffb74d',
-      dark: '#f57c00',
+      main: '#FFD700',
+      light: '#FFEC8B',
+      dark: '#DAA520',
     },
     background: {
-      default: '#1a1a1a',
-      paper: '#2d2d2d',
-    },
-    text: {
-      primary: '#ffffff',
-      secondary: '#b3b3b3',
+      default: '#000000',
+      paper: '#1a1a1a',
     },
   },
+  shape: {
+    borderRadius: 8,
+  },
   components: {
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          textTransform: 'none',
-          borderRadius: 4,
-          padding: '8px 24px',
-          fontSize: '1.2rem',
-          fontWeight: 'bold',
-          lineHeight: 1.4,
-          letterSpacing: '0.05em',
-          color: '#ffffff',
-          textShadow: '0 1px 2px rgba(0,0,0,0.3)',
-          '&:hover': {
-            color: '#ff9800',
-            textShadow: '0 1px 2px rgba(0,0,0,0.3)',
-          },
-        },
-      },
-    },
     MuiCard: {
       styleOverrides: {
         root: {
@@ -121,7 +97,7 @@ const theme = createTheme({
         },
       },
     },
-  },
+  }
 });
 
 function App() {

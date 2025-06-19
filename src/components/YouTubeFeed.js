@@ -5,10 +5,15 @@ import { styled } from '@mui/material/styles';
 import { COLORS, TRANSITIONS, TYPOGRAPHY, API_CONFIG } from '../constants/styles';
 import StatusPaper from './StatusPaper';
 
+<<<<<<< HEAD
 import { getRoute } from '../utils/base';
 
 const SectionBackground = styled(Box)({
   backgroundImage: `url(${process.env.NODE_ENV === 'development' ? getRoute('https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/b0e5cc656a0bdb30574a736ab00c2f488c35c114-1280x720.jpg') : 'https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/b0e5cc656a0bdb30574a736ab00c2f488c35c114-1280x720.jpg'})`,
+=======
+const SectionBackground = styled(Box)({
+  backgroundImage: `url('https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/b0e5cc656a0bdb30574a736ab00c2f488c35c114-1280x720.jpg?auto=format&fit=fill&q=80&w=1082')`,
+>>>>>>> 6dc8e1b95222d49a46cdc2d086d8c023cfef159a
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   backgroundRepeat: 'no-repeat',
@@ -66,7 +71,11 @@ const VideoOverlay = styled(Box)({
 });
 
 const TFT_FONT = {
+<<<<<<< HEAD
   fontFamily: '"Bloomer", "Roboto", "Helvetica", "Arial", sans-serif',
+=======
+  fontFamily: "'League Gothic', sans-serif",
+>>>>>>> 6dc8e1b95222d49a46cdc2d086d8c023cfef159a
   textTransform: 'uppercase',
   fontWeight: 'bold',
   letterSpacing: '0.05em'
@@ -80,10 +89,14 @@ const YouTubeFeed = () => {
   useEffect(() => {
     const fetchVideos = async () => {
       try {
+<<<<<<< HEAD
         const baseUrl = process.env.NODE_ENV === 'development' 
           ? 'http://localhost:5000/api/youtube' 
           : API_CONFIG.youtube.baseUrl;
         const response = await fetch(`${baseUrl}${API_CONFIG.youtube.endpoints.videos}`, {
+=======
+        const response = await fetch('http://localhost:5000/api/youtube/videos', {
+>>>>>>> 6dc8e1b95222d49a46cdc2d086d8c023cfef159a
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'
@@ -136,14 +149,26 @@ const YouTubeFeed = () => {
           position: 'relative', 
           width: '100%',
           maxWidth: '100%',
+<<<<<<< HEAD
           justifyContent: 'center',
           zIndex: 1
+=======
+          justifyContent: 'center'
+>>>>>>> 6dc8e1b95222d49a46cdc2d086d8c023cfef159a
         }}>
           {loading ? (
             <Grid item xs={12}>
               <StatusPaper 
                 status="loading" 
                 message="Cargando videos..."
+<<<<<<< HEAD
+=======
+                sx={{
+                  fontFamily: '"Bloomer", "Roboto", "Helvetica", "Arial", sans-serif',
+                  fontSize: '1.2rem',
+                  fontWeight: 400
+                }}
+>>>>>>> 6dc8e1b95222d49a46cdc2d086d8c023cfef159a
               />
             </Grid>
           ) : error ? (
@@ -151,6 +176,14 @@ const YouTubeFeed = () => {
               <StatusPaper 
                 status="error" 
                 message={error}
+<<<<<<< HEAD
+=======
+                sx={{
+                  fontFamily: '"Bloomer", "Roboto", "Helvetica", "Arial", sans-serif',
+                  fontSize: '1.2rem',
+                  fontWeight: 400
+                }}
+>>>>>>> 6dc8e1b95222d49a46cdc2d086d8c023cfef159a
               />
             </Grid>
           ) : videos.length === 0 ? (
@@ -159,6 +192,14 @@ const YouTubeFeed = () => {
                 status="empty" 
                 message="No se encontraron videos. Por favor, inténtalo de nuevo más tarde."
                 secondaryMessage="(Los shorts de YouTube no se muestran en esta sección)"
+<<<<<<< HEAD
+=======
+                sx={{
+                  fontFamily: '"Bloomer", "Roboto", "Helvetica", "Arial", sans-serif',
+                  fontSize: '1.2rem',
+                  fontWeight: 400
+                }}
+>>>>>>> 6dc8e1b95222d49a46cdc2d086d8c023cfef159a
               />
             </Grid>
           ) : (
