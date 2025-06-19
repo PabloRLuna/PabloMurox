@@ -79,7 +79,7 @@ const YouTubeFeed = () => {
     const fetchVideos = async () => {
       try {
         const baseUrl = process.env.NODE_ENV === 'development' 
-          ? 'http://localhost:5000' 
+          ? 'http://localhost:5000/api/youtube' 
           : API_CONFIG.youtube.baseUrl;
         const response = await fetch(`${baseUrl}${API_CONFIG.youtube.endpoints.videos}`, {
           method: 'GET',
