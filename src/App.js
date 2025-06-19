@@ -10,10 +10,8 @@ import './index.css';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Home from './components/Home';
-import Portfolio from './components/Portfolio';
 import About from './components/About';
 import Contact from './components/Contact';
-import Merch from './components/Merch';
 
 import Footer from './components/Footer';
 import Layout from './components/Layout';
