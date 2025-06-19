@@ -64,7 +64,7 @@ const VideoOverlay = styled(Box)({
 });
 
 const TFT_FONT = {
-  fontFamily: "'League Gothic', sans-serif",
+  fontFamily: '"Bloomer", "Roboto", "Helvetica", "Arial", sans-serif',
   textTransform: 'uppercase',
   fontWeight: 'bold',
   letterSpacing: '0.05em'
