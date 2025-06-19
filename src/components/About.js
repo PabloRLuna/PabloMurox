@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Typography, Grid, Box } from '@mui/material';
+import { linkStyles } from '../styles/linkStyles';
 
 const About = () => {
   return (
@@ -120,43 +121,14 @@ const About = () => {
             mt: 4
           }}>
             <a href="https://youtube.com/@pablomuro" target="_blank" rel="noopener noreferrer" style={{
-              textDecoration: 'none',
-              color: '#ff6b00',
-              fontWeight: 'bold',
-              fontFamily: '"League Gothic", "Roboto", "Helvetica", "Arial", sans-serif',
-              fontSize: '2rem',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '0.5rem',
-              padding: '1.5rem 3rem',
-              borderRadius: '8px',
-              transition: 'transform 0.2s',
-              backgroundColor: 'rgba(255, 255, 255, 0.1)',
-              backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              width: '100%'
+              ...linkStyles
             }}>
               <span role="img" aria-label="YouTube">📺</span>
               Video diario con las mejores compos del meta y guías para mejorar en TFT.
             </a>
             <a href="https://discord.com/invite/455854545454545454" target="_blank" rel="noopener noreferrer" style={{
-              textDecoration: 'none',
-              color: '#7289da',
-              fontWeight: 'bold',
-              fontFamily: '"League Gothic", "Roboto", "Helvetica", "Arial", sans-serif',
-              fontSize: '2rem',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '0.5rem',
-              padding: '1.5rem 3rem',
-              borderRadius: '8px',
-              transition: 'transform 0.2s',
-              backgroundColor: 'rgba(255, 255, 255, 0.1)',
-              backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              width: '100%'
+              ...linkStyles,
+              color: '#7289da'
             }}>
               <span role="img" aria-label="Discord">🎮</span>
               Tenemos una bonita comunidad, compartimos todo por Discord

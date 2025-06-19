@@ -75,9 +75,9 @@ const TwitchSection = () => {
           }}>
             <iframe
               title="Transmisión de Twitch"
-              src={`https://player.twitch.tv/?channel=${channel}&parent=${parent}`}
-              allowFullScreen
+              src={`https://player.twitch.tv/?channel=${channel}&parent=${parent}&muted=false&autoplay=false&layout=video`}
               allow="autoplay; fullscreen"
+              allowFullScreen={true}
               sx={{
                 width: '100%',
                 height: '100%',
@@ -96,14 +96,14 @@ const TwitchSection = () => {
           }}>
             <iframe
               title="Chat de Twitch"
-              src={`https://www.twitch.tv/embed/${channel}/chat?parent=${parent}&darkpopout`}
+              src={`https://www.twitch.tv/embed/${channel}/chat?parent=${parent}&darkpopout=true&theme=dark`}
               style={{
                 width: '100%',
                 height: '100%',
                 border: 'none',
                 pointerEvents: 'auto'
               }}
-              allowFullScreen="false"
+              allowFullScreen={false}
             />
           </Box>
         </Box>

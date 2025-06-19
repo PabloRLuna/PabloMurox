@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import { styled } from '@mui/material/styles';
 import { COLORS, TRANSITIONS, TYPOGRAPHY, API_CONFIG } from '../constants/styles';
 import StatusPaper from './StatusPaper';
+import { getYouTubeVideos } from '../utils/youtubeApi';
+
 
 const SectionBackground = styled(Box)({
   backgroundImage: `url('https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/b0e5cc656a0bdb30574a736ab00c2f488c35c114-1280x720.jpg?auto=format&fit=fill&q=80&w=1082')`,
@@ -78,17 +80,10 @@ const YouTubeFeed = () => {
   useEffect(() => {
     const fetchVideos = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/youtube/videos', {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        });
-        if (!response.ok) {
-          const errorData = await response.json().catch(() => {});
-          throw new Error(`Error ${response.status}: ${errorData?.error || 'Error al obtener los videos'}`);
-        }
-        const data = await response.json();
+        console.log('Iniciando fetch de videos...');
+        const data = await getYouTubeVideos();
+        console.log('Datos recibidos:', data);
+        console.log('Videos en data:', data.videos);
         
         console.log('Respuesta del servidor:', data);
         
