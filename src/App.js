@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { TwitchProvider } from './contexts/TwitchContext';
-import { getRoute } from './utils/base';
+import { getRoute, BASE_PATH } from './utils/base';
 import './index.css';
 
 // Components
@@ -135,24 +135,20 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <TwitchProvider>
-        <Router basename={BASE_PATH}>
-          <CssBaseline />
-          <ThemeProvider theme={theme}>
-            <TwitchProvider>
-              <Layout>
-                <Routes>
-                  <Route path={getRoute('/')} element={<Home />} />
-                  <Route path={getRoute('/about')} element={<About />} />
-                  <Route path={getRoute('/contact')} element={<Contact />} />
-                  <Route path={getRoute('/portfolio')} element={<Portfolio />} />
-                  <Route path={getRoute('/merch')} element={<Merch />} />
-                </Routes>
-              </Layout>
-            </TwitchProvider>
-          </ThemeProvider>
-        </Router>
-      </TwitchProvider>
+      <ThemeProvider theme={theme}>
+      <Router basename={BASE_PATH}>
+        <CssBaseline />
+        <Layout>
+          <Routes>
+            <Route path={getRoute('/')} element={<Home />} />
+            <Route path={getRoute('/about')} element={<About />} />
+            <Route path={getRoute('/contact')} element={<Contact />} />
+            <Route path={getRoute('/portfolio')} element={<Portfolio />} />
+            <Route path={getRoute('/merch')} element={<Merch />} />
+          </Routes>
+        </Layout>
+      </Router>
+    </ThemeProvider>
     </ThemeProvider>
   );
 }
