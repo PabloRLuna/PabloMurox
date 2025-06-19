@@ -1,16 +1,14 @@
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = function(app) {
-  const target = process.env.NODE_ENV === 'production' 
-    ? 'https://api.pablorluna.com' 
-    : 'http://localhost:5000';
+    const target = 'https://api.pablorluna.com';
 
   app.use(
     '/api',
     createProxyMiddleware({
       target,
       changeOrigin: true,
-      secure: process.env.NODE_ENV === 'production',
+      secure: true,
       onProxyReq: (proxyReq) => {
         proxyReq.setHeader('Origin', target);
       }
