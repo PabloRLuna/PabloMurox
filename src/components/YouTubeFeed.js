@@ -75,24 +75,23 @@ const YouTubeFeed = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const API_BASE_URL = 'https://api.pablorluna.com';
+  const API_VIDEOS_ENDPOINT = '/api/youtube/videos';
+
   useEffect(() => {
     const fetchVideos = async () => {
       try {
-        const response = await fetch(`${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.VIDEOS}`, {
+        const response = await fetch(`${API_BASE_URL}${API_VIDEOS_ENDPOINT}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'
           }
         });
         if (!response.ok) {
-          const errorData = await response.json().catch(() => {});
-          throw new Error(`Error ${response.status}: ${errorData?.error || 'Error al obtener los videos'}`);
+          throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        
-        console.log('Respuesta del servidor:', data);
-        
-        // Verificar si la respuesta tiene la estructura esperada
+        setVideos(data);
         if (!data.videos || !Array.isArray(data.videos)) {
           throw new Error(`Estructura de datos inválida: ${JSON.stringify(data)}`);
         }
