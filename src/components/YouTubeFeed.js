@@ -8,7 +8,7 @@ import StatusPaper from './StatusPaper';
 import { getRoute } from '../utils/base';
 
 const SectionBackground = styled(Box)({
-  backgroundImage: `url('${process.env.PUBLIC_URL}${getRoute('/images/background.jpg')}')`,
+  backgroundImage: `url(${process.env.NODE_ENV === 'development' ? getRoute('https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/b0e5cc656a0bdb30574a736ab00c2f488c35c114-1280x720.jpg') : 'https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/b0e5cc656a0bdb30574a736ab00c2f488c35c114-1280x720.jpg'})`,
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   backgroundRepeat: 'no-repeat',

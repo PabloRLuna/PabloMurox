@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import { Container, Box } from '@mui/material';
 import YouTubeFeed from './YouTubeFeed';
 import VideoSectionTitle from './VideoSectionTitle';
+import Hero from './Hero';
+import Footer from './Footer';
 import { TwitchContext } from '../contexts/TwitchContext';
 
 
@@ -12,6 +14,7 @@ const Home = () => {
 
   return (
     <>
+      <Hero />
       <Container maxWidth="lg" sx={{ 
         mt: 4,
         display: 'flex',
@@ -33,6 +36,7 @@ const Home = () => {
           <YouTubeFeed />
         </Box>
       </Container>
+      <Footer />
     </>
   );
 };

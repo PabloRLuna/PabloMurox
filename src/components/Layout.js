@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Box } from '@mui/material';
 import TwitchSection from './TwitchSection';
+import Navbar from './Navbar';
 import { TwitchContext } from '../contexts/TwitchContext';
 
 const Layout = ({ children }) => {
@@ -10,20 +11,21 @@ const Layout = ({ children }) => {
     <Box sx={{ 
       display: 'flex',
       minHeight: '100vh',
-      bgcolor: 'background.default',
-      flexDirection: 'row'
+      bgcolor: 'background.default'
     }}>
       {/* Contenido principal */}
       <Box sx={{ 
         flex: 1,
-        overflow: 'auto',
-        pr: { 
-          md: isTwitchExpanded ? 32 : 0 
-        },
-        transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
         bgcolor: 'background.default'
       }}>
-        {children}
+        <Navbar />
+        <Box sx={{ 
+          mt: 8,
+          minHeight: 'calc(100vh - 64px)',
+          overflow: 'auto'
+        }}>
+          {children}
+        </Box>
       </Box>
 
       {/* TwitchSection fija a la derecha */}
@@ -40,7 +42,6 @@ const Layout = ({ children }) => {
           flexDirection: 'column',
           bgcolor: 'background.paper',
           borderLeft: '1px solid #2a2a2a',
-          transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
           zIndex: 1000
         }}
       >
