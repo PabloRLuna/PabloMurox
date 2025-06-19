@@ -31,7 +31,7 @@ export const TYPOGRAPHY = {
 
 export const API_CONFIG = {
   youtube: {
-    baseUrl: 'http://localhost:5000/api/youtube',
+    baseUrl: 'https://api.pablorluna.com/api/youtube',
     endpoints: {
       videos: '/videos'
     }
