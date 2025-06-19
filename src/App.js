@@ -1,8 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { TwitchProvider } from './contexts/TwitchContext';
+import './index.css';
 
 // Components
 import Navbar from './components/Navbar';
@@ -17,8 +18,107 @@ import Footer from './components/Footer';
 import Layout from './components/Layout';
 import Background from './components/Background';
 
-// Usar el tema creado en theme.js
-import theme from './theme';
+// Configurar el tema directamente en App.js
+const theme = createTheme({
+  typography: {
+    fontFamily: "'Bloomer', 'Roboto', 'Helvetica', 'Arial', sans-serif",
+    h1: {
+      fontWeight: 'bold',
+      letterSpacing: '0.1em',
+      lineHeight: 1.4,
+    },
+    h2: {
+      fontWeight: 'bold',
+      letterSpacing: '0.1em',
+      lineHeight: 1.4,
+    },
+    h3: {
+      fontWeight: 'bold',
+      letterSpacing: '0.1em',
+      lineHeight: 1.4,
+    },
+    h4: {
+      fontWeight: 'bold',
+      letterSpacing: '0.1em',
+      lineHeight: 1.4,
+    },
+    h5: {
+      fontWeight: 'bold',
+      letterSpacing: '0.1em',
+      lineHeight: 1.4,
+    },
+    h6: {
+      fontWeight: 'bold',
+      letterSpacing: '0.1em',
+      lineHeight: 1.4,
+    },
+    body1: {
+      lineHeight: 1.6,
+    },
+    body2: {
+      lineHeight: 1.6,
+    },
+  },
+  palette: {
+    primary: {
+      main: '#8a2be2',
+      light: '#a868e8',
+      dark: '#6b00b4',
+    },
+    secondary: {
+      main: '#ff9800',
+      light: '#ffb74d',
+      dark: '#f57c00',
+    },
+    background: {
+      default: '#1a1a1a',
+      paper: '#2d2d2d',
+    },
+    text: {
+      primary: '#ffffff',
+      secondary: '#b3b3b3',
+    },
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: 'none',
+          borderRadius: 4,
+          padding: '8px 24px',
+          fontSize: '1.2rem',
+          fontWeight: 'bold',
+          lineHeight: 1.4,
+          letterSpacing: '0.05em',
+          color: '#ffffff',
+          textShadow: '0 1px 2px rgba(0,0,0,0.3)',
+          '&:hover': {
+            color: '#ff9800',
+            textShadow: '0 1px 2px rgba(0,0,0,0.3)',
+          },
+        },
+      },
+    },
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          borderRadius: 8,
+          transition: 'transform 0.2s ease-in-out',
+          '&:hover': {
+            transform: 'translateY(-2px)',
+          },
+        },
+      },
+    },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          borderRadius: 8,
+        },
+      },
+    },
+  },
+});
 
 
 function App() {
