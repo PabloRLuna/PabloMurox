@@ -1,22 +1,34 @@
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = function(app) {
-  // Proxy para Twitch
+  const target = process.env.NODE_ENV === 'production' 
+    ? 'https://api.pablorluna.com' 
+    : 'http://localhost:5000';
+
   app.use(
-    '/twitch',
+    '/api',
     createProxyMiddleware({
-      target: 'https://www.twitch.tv',
+      target,
       changeOrigin: true,
-      secure: false,
-      onProxyRes: function(proxyRes, req, res) {
-        proxyRes.headers['Access-Control-Allow-Origin'] = '*';
-        proxyRes.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS';
-        proxyRes.headers['Access-Control-Allow-Headers'] = 'Content-Type';
+      secure: process.env.NODE_ENV === 'production',
+      onProxyReq: (proxyReq) => {
+        proxyReq.setHeader('Origin', target);
       }
     })
   );
 
-  // Proxy para YouTube
+  // Proxy para Twitch
+  app.use(
+    '/twitch',
+    createProxyMiddleware({
+      target: 'https://api.twitch.tv',
+      changeOrigin: true,
+      secure: true,
+      onProxyReq: (proxyReq) => {
+        proxyReq.setHeader('Client-ID', process.env.REACT_APP_TWITCH_CLIENT_ID);
+      },
+    })
+  );
   app.use(
     '/api/youtube',
     createProxyMiddleware({
