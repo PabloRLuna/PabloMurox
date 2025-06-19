@@ -1,10 +1,13 @@
 {
   "files": {
-    "main.js": "/PabloMurox/static/js/main.2faa7036.js",
+    "main.css": "/PabloMurox/static/css/main.6ab2a0cc.css",
+    "main.js": "/PabloMurox/static/js/main.8320165a.js",
     "index.html": "/PabloMurox/index.html",
-    "main.2faa7036.js.map": "/PabloMurox/static/js/main.2faa7036.js.map"
+    "main.6ab2a0cc.css.map": "/PabloMurox/static/css/main.6ab2a0cc.css.map",
+    "main.8320165a.js.map": "/PabloMurox/static/js/main.8320165a.js.map"
   },
   "entrypoints": [
-    "static/js/main.2faa7036.js"
+    "static/css/main.6ab2a0cc.css",
+    "static/js/main.8320165a.js"
   ]
 }
