@@ -26,37 +26,47 @@ const theme = createTheme({
       fontWeight: 'bold',
       letterSpacing: '0.1em',
       lineHeight: 1.4,
+      textTransform: 'uppercase',
     },
     h2: {
       fontWeight: 'bold',
       letterSpacing: '0.1em',
       lineHeight: 1.4,
+      textTransform: 'uppercase',
     },
     h3: {
       fontWeight: 'bold',
       letterSpacing: '0.1em',
       lineHeight: 1.4,
+      textTransform: 'uppercase',
     },
     h4: {
       fontWeight: 'bold',
       letterSpacing: '0.1em',
       lineHeight: 1.4,
+      textTransform: 'uppercase',
     },
     h5: {
       fontWeight: 'bold',
       letterSpacing: '0.1em',
       lineHeight: 1.4,
+      textTransform: 'uppercase',
     },
     h6: {
       fontWeight: 'bold',
       letterSpacing: '0.1em',
       lineHeight: 1.4,
+      textTransform: 'uppercase',
     },
     body1: {
       lineHeight: 1.6,
+      textTransform: 'uppercase',
+      letterSpacing: '0.1em',
     },
     body2: {
       lineHeight: 1.6,
+      textTransform: 'uppercase',
+      letterSpacing: '0.1em',
     },
   },
   palette: {
