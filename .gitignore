@@ -1,0 +1,13 @@
+node_modules/
+build/
+.env
+.DS_Store
+*.log
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+*.der
+*.cer
+*.pkcs12
