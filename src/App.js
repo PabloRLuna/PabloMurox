@@ -7,15 +7,10 @@ import { getRoute, BASE_PATH } from './utils/base';
 import './index.css';
 
 // Components
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
 import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
-
-import Footer from './components/Footer';
 import Layout from './components/Layout';
-import Background from './components/Background';
 
 // Configurar el tema directamente en App.js
 const theme = createTheme({
@@ -136,13 +131,15 @@ function App() {
       <ThemeProvider theme={theme}>
       <Router basename={BASE_PATH}>
         <CssBaseline />
-        <Layout>
-          <Routes>
-            <Route path={getRoute('/')} element={<Home />} />
-            <Route path={getRoute('/about')} element={<About />} />
-            <Route path={getRoute('/contact')} element={<Contact />} />
-          </Routes>
-        </Layout>
+        <TwitchProvider>
+          <Layout>
+            <Routes>
+              <Route path={getRoute('/')} element={<Home />} />
+              <Route path={getRoute('/about')} element={<About />} />
+              <Route path={getRoute('/contact')} element={<Contact />} />
+            </Routes>
+          </Layout>
+        </TwitchProvider>
       </Router>
     </ThemeProvider>
     </ThemeProvider>
