@@ -78,7 +78,7 @@ const YouTubeFeed = () => {
   useEffect(() => {
     const fetchVideos = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/youtube/videos', {
+        const response = await fetch(`${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.VIDEOS}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'
