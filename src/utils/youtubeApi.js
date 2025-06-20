@@ -55,8 +55,8 @@ export const getYouTubeVideos = async () => {
       return totalSeconds >= 60; // Solo videos de 1 minuto o más
     });
 
-    // Tomar los primeros 3 videos que cumplen el criterio
-    const videos = filteredVideos.slice(0, 3).map(item => ({
+    // Tomar los primeros 15 videos que cumplen el criterio
+    const videos = filteredVideos.slice(0, 15).map(item => ({
       id: item.id.videoId,
       title: item.snippet.title,
       thumbnail: item.snippet.thumbnails.high.url,
