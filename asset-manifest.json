@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/PabloMurox /static/js/main.b60c4a15.js",
-    "index.html": "/PabloMurox /index.html",
-    "main.b60c4a15.js.map": "/PabloMurox /static/js/main.b60c4a15.js.map"
+    "main.js": "/PabloMurox/static/js/main.b60c4a15.js",
+    "index.html": "/PabloMurox/index.html",
+    "main.b60c4a15.js.map": "/PabloMurox/static/js/main.b60c4a15.js.map"
   },
   "entrypoints": [
     "static/js/main.b60c4a15.js"
