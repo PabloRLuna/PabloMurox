@@ -54,7 +54,7 @@ const Navbar = () => {
           </StyledButton>
           <StyledButton
             component={RouterLink}
-            to="/about"
+            to="/PabloMurox/about"
             sx={{
               fontSize: '1.2rem',
               fontWeight: 400,
@@ -71,7 +71,7 @@ const Navbar = () => {
 
           <StyledButton
             component={RouterLink}
-            to="/contact"
+            to="/PabloMurox/contact"
             sx={{
               fontSize: '1.2rem',
               fontWeight: 400,
