@@ -22,7 +22,7 @@
     "stripe": "^18.2.1"
   },
   "scripts": {
-    "start": "set PUBLIC_URL=/PabloMurox/ && react-scripts start",
+    "start": "set PUBLIC_URL=/PabloMurox && react-scripts start",
     "build": "set PUBLIC_URL=/PabloMurox && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
