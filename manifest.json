@@ -8,7 +8,7 @@
       "type": "image/x-icon"
     }
   ],
-  "start_url": "/PabloMurox",
+  "start_url": ".",
   "display": "standalone",
   "theme_color": "#2196f3",
   "background_color": "#ffffff"
