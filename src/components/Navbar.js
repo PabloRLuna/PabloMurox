@@ -89,6 +89,57 @@ const Navbar = () => {
         <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
           <StyledButton
             component="a"
+            href="https://x.com/pablomur0"
+            target="_blank"
+            sx={{
+              fontSize: '1.2rem',
+              fontWeight: 400,
+              px: 2,
+              py: 1,
+              borderRadius: 4,
+              '&:hover': {
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              }
+            }}
+          >
+            <TwitterIcon sx={{ mr: 1 }} />
+          </StyledButton>
+          <StyledButton
+            component="a"
+            href="https://www.instagram.com/pablomurotv/"
+            target="_blank"
+            sx={{
+              fontSize: '1.2rem',
+              fontWeight: 400,
+              px: 2,
+              py: 1,
+              borderRadius: 4,
+              '&:hover': {
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              }
+            }}
+          >
+            <InstagramIcon sx={{ mr: 1 }} />
+          </StyledButton>
+          <StyledButton
+            component="a"
+            href="https://www.youtube.com/@pablomuro"
+            target="_blank"
+            sx={{
+              fontSize: '1.2rem',
+              fontWeight: 400,
+              px: 2,
+              py: 1,
+              borderRadius: 4,
+              '&:hover': {
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              }
+            }}
+          >
+            <YouTubeIcon sx={{ mr: 1 }} />
+          </StyledButton>
+          <StyledButton
+            component="a"
             href="https://twitch.tv/pablomurox"
             target="_blank"
             sx={{
@@ -103,57 +154,6 @@ const Navbar = () => {
             }}
           >
             <TwitchIcon />
-          </StyledButton>
-          <StyledButton
-            component="a"
-            href="https://youtube.com/@pablomurox"
-            target="_blank"
-            sx={{
-              fontSize: '1.2rem',
-              fontWeight: 400,
-              px: 2,
-              py: 1,
-              borderRadius: 4,
-              '&:hover': {
-                backgroundColor: 'rgba(255, 255, 255, 0.1)',
-              }
-            }}
-          >
-            <YouTubeIcon />
-          </StyledButton>
-          <StyledButton
-            component="a"
-            href="https://instagram.com/pablomurox"
-            target="_blank"
-            sx={{
-              fontSize: '1.2rem',
-              fontWeight: 400,
-              px: 2,
-              py: 1,
-              borderRadius: 4,
-              '&:hover': {
-                backgroundColor: 'rgba(255, 255, 255, 0.1)',
-              }
-            }}
-          >
-            <InstagramIcon />
-          </StyledButton>
-          <StyledButton
-            component="a"
-            href="https://twitter.com/pablomurox"
-            target="_blank"
-            sx={{
-              fontSize: '1.2rem',
-              fontWeight: 400,
-              px: 2,
-              py: 1,
-              borderRadius: 4,
-              '&:hover': {
-                backgroundColor: 'rgba(255, 255, 255, 0.1)',
-              }
-            }}
-          >
-            <TwitterIcon />
           </StyledButton>
         </Box>
       </Toolbar>
