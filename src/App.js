@@ -8,7 +8,7 @@ import { TwitchProvider } from './contexts/TwitchContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Home from './components/Home';
-import Portfolio from './components/Portfolio';
+
 import About from './components/About';
 import Contact from './components/Contact';
 
@@ -32,9 +32,10 @@ function App() {
           <Hero />
           <Layout>
             <Routes>
-              <Route path="/PabloMurox" element={<Home />} />
+              <Route path="/PabloMurox/" element={<Home />} />
               <Route path="/PabloMurox/about" element={<About />} />
               <Route path="/PabloMurox/contact" element={<Contact />} />
+
             </Routes>
             <Footer />
           </Layout>
