@@ -32,10 +32,9 @@ function App() {
           <Hero />
           <Layout>
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-
+              <Route path="/PabloMurox" element={<Home />} />
+              <Route path="/PabloMurox/about" element={<About />} />
+              <Route path="/PabloMurox/contact" element={<Contact />} />
             </Routes>
             <Footer />
           </Layout>

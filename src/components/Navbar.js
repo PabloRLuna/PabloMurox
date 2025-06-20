@@ -18,7 +18,7 @@ const Navbar = () => {
           <Typography
             variant="h6"
             component={RouterLink}
-            to="/"
+            to="/PabloMurox"
             sx={{
               textDecoration: 'none',
               color: '#8a2be2',
