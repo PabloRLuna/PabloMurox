@@ -127,16 +127,98 @@ const updateVideos = async () => {
     }
 
     console.log('Videos encontrados:', response.data.items.length);
-    const videos = response.data.items.map(video => ({
-      id: video.snippet.resourceId.videoId,
-      title: video.snippet.title,
-      description: video.snippet.description,
-      thumbnail: video.snippet.thumbnails.high.url,
-      publishedAt: video.snippet.publishedAt
-    }));
+    console.log('Detalles de los videos encontrados:', response.data.items.map(v => ({
+      id: v.snippet.resourceId.videoId,
+      title: v.snippet.title,
+      description: v.snippet.description,
+      thumbnail: v.snippet.thumbnails.high.url,
+      publishedAt: v.snippet.publishedAt
+    })));
+    
+    // Contar shorts
+    const shortsCount = response.data.items.filter(video => 
+      video.snippet.description?.toLowerCase().includes('short') ||
+      video.snippet.title?.toLowerCase().includes('short')
+    ).length;
+    
+    console.log('Total de shorts encontrados:', shortsCount);
+    console.log('Detalles de shorts encontrados:', 
+      response.data.items.filter(video => 
+        video.snippet.description?.toLowerCase().includes('short') ||
+        video.snippet.title?.toLowerCase().includes('short')
+      ).map(v => ({
+        id: v.snippet.resourceId.videoId,
+        title: v.snippet.title,
+        description: v.snippet.description
+      }))
+    );
+    
+    // Obtener la duración de cada video
+    const videoDetailsPromises = response.data.items.map(async (video) => {
+      try {
+        const videoResponse = await youtube.videos.list({
+          part: 'contentDetails',
+          id: video.snippet.resourceId.videoId,
+          key: process.env.YOUTUBE_API_KEY
+        });
 
-    console.log('Videos procesados:', videos.length);
-    cachedVideos = videos;
+        if (videoResponse.data.items && videoResponse.data.items.length > 0) {
+          const duration = videoResponse.data.items[0].contentDetails.duration;
+          // Convertir duración ISO 8601 a segundos
+          const durationSeconds = duration
+            .replace('PT', '')
+            .split(/([HMS])/)
+            .filter(Boolean)
+            .reduce((total, value, index, array) => {
+              if (index % 2 === 0) {
+                const nextUnit = array[index + 1];
+                const number = parseInt(value, 10);
+                switch (nextUnit) {
+                  case 'H': return total + number * 3600;
+                  case 'M': return total + number * 60;
+                  case 'S': return total + number;
+                  default: return total;
+                }
+              }
+              return total;
+            }, 0);
+
+          // Filtrar videos menores a 60 segundos
+          if (durationSeconds < 60) {
+            console.log(`Short filtrado: ${video.snippet.title} (${durationSeconds}s)`);
+            return null;
+          }
+
+          return {
+            id: video.snippet.resourceId.videoId,
+            title: video.snippet.title,
+            thumbnail: video.snippet.thumbnails.high.url,
+            publishedAt: video.snippet.publishedAt
+          };
+        }
+        return null;
+      } catch (error) {
+        console.error(`Error obteniendo detalles del video ${video.snippet.resourceId.videoId}:`, error);
+        return null;
+      }
+    });
+
+    // Esperar todas las promesas y filtrar los resultados
+    const allVideos = await Promise.all(videoDetailsPromises);
+    const filteredVideos = allVideos.filter(video => video !== null);
+
+    console.log('Videos filtrados (sin shorts):', filteredVideos.length);
+    console.log('Detalles de los videos filtrados:', filteredVideos.map(v => ({
+      id: v.id,
+      title: v.title
+    })));
+    
+    if (filteredVideos.length === 0) {
+      console.error('ERROR: No se encontraron videos válidos después del filtrado');
+    }
+
+    console.log('Videos procesados:', filteredVideos.length);
+    cachedVideos = filteredVideos;
     lastUpdate = new Date();
     console.log('Videos actualizados exitosamente');
   } catch (error) {
@@ -219,8 +301,16 @@ const scheduleDailyUpdate = () => {
   }, timeout);
 };
 
-// Iniciar primera actualización
-scheduleDailyUpdate();
+// Forzar una actualización manual al iniciar el servidor
+updateVideos().then(() => {
+  console.log('Actualización inicial completada');
+  // Luego programar la actualización diaria
+  scheduleDailyUpdate();
+}).catch(error => {
+  console.error('Error en la actualización inicial:', error);
+  // Aún así programar la actualización diaria
+  scheduleDailyUpdate();
+});
 
 // Endpoint para obtener videos
 app.get('/api/youtube/videos', async (req, res) => {

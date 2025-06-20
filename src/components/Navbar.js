@@ -18,7 +18,7 @@ const Navbar = () => {
           <Typography
             variant="h6"
             component={RouterLink}
-            to="/PabloMurox/"
+            to="/"
             sx={{
               textDecoration: 'none',
               color: '#8a2be2',
@@ -54,7 +54,7 @@ const Navbar = () => {
           </StyledButton>
           <StyledButton
             component={RouterLink}
-            to="/PabloMurox/about"
+            to="/about"
             sx={{
               fontSize: '1.2rem',
               fontWeight: 400,
@@ -71,7 +71,7 @@ const Navbar = () => {
 
           <StyledButton
             component={RouterLink}
-            to="/PabloMurox/contact"
+            to="/contact"
             sx={{
               fontSize: '1.2rem',
               fontWeight: 400,
@@ -89,57 +89,6 @@ const Navbar = () => {
         <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
           <StyledButton
             component="a"
-            href="https://x.com/pablomur0"
-            target="_blank"
-            sx={{
-              fontSize: '1.2rem',
-              fontWeight: 400,
-              px: 2,
-              py: 1,
-              borderRadius: 4,
-              '&:hover': {
-                backgroundColor: 'rgba(255, 255, 255, 0.1)',
-              }
-            }}
-          >
-            <TwitterIcon sx={{ mr: 1 }} />
-          </StyledButton>
-          <StyledButton
-            component="a"
-            href="https://www.instagram.com/pablomurotv/"
-            target="_blank"
-            sx={{
-              fontSize: '1.2rem',
-              fontWeight: 400,
-              px: 2,
-              py: 1,
-              borderRadius: 4,
-              '&:hover': {
-                backgroundColor: 'rgba(255, 255, 255, 0.1)',
-              }
-            }}
-          >
-            <InstagramIcon sx={{ mr: 1 }} />
-          </StyledButton>
-          <StyledButton
-            component="a"
-            href="https://www.youtube.com/@pablomuro"
-            target="_blank"
-            sx={{
-              fontSize: '1.2rem',
-              fontWeight: 400,
-              px: 2,
-              py: 1,
-              borderRadius: 4,
-              '&:hover': {
-                backgroundColor: 'rgba(255, 255, 255, 0.1)',
-              }
-            }}
-          >
-            <YouTubeIcon sx={{ mr: 1 }} />
-          </StyledButton>
-          <StyledButton
-            component="a"
             href="https://twitch.tv/pablomurox"
             target="_blank"
             sx={{
@@ -154,6 +103,57 @@ const Navbar = () => {
             }}
           >
             <TwitchIcon />
+          </StyledButton>
+          <StyledButton
+            component="a"
+            href="https://youtube.com/@pablomurox"
+            target="_blank"
+            sx={{
+              fontSize: '1.2rem',
+              fontWeight: 400,
+              px: 2,
+              py: 1,
+              borderRadius: 4,
+              '&:hover': {
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              }
+            }}
+          >
+            <YouTubeIcon />
+          </StyledButton>
+          <StyledButton
+            component="a"
+            href="https://instagram.com/pablomurox"
+            target="_blank"
+            sx={{
+              fontSize: '1.2rem',
+              fontWeight: 400,
+              px: 2,
+              py: 1,
+              borderRadius: 4,
+              '&:hover': {
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              }
+            }}
+          >
+            <InstagramIcon />
+          </StyledButton>
+          <StyledButton
+            component="a"
+            href="https://twitter.com/pablomurox"
+            target="_blank"
+            sx={{
+              fontSize: '1.2rem',
+              fontWeight: 400,
+              px: 2,
+              py: 1,
+              borderRadius: 4,
+              '&:hover': {
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              }
+            }}
+          >
+            <TwitterIcon />
           </StyledButton>
         </Box>
       </Toolbar>

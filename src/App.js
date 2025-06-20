@@ -8,10 +8,10 @@ import { TwitchProvider } from './contexts/TwitchContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Home from './components/Home';
-
+import Portfolio from './components/Portfolio';
 import About from './components/About';
 import Contact from './components/Contact';
-
+import Merch from './components/Merch';
 
 import Footer from './components/Footer';
 import Layout from './components/Layout';
@@ -19,7 +19,7 @@ import Background from './components/Background';
 
 // Usar el tema creado en theme.js
 import theme from './theme';
-
+import '@fontsource/league-gothic';
 
 function App() {
   return (
@@ -32,10 +32,11 @@ function App() {
           <Hero />
           <Layout>
             <Routes>
-              <Route path="/PabloMurox/" element={<Home />} />
-              <Route path="/PabloMurox/about" element={<About />} />
-              <Route path="/PabloMurox/contact" element={<Contact />} />
-
+              <Route path="/" element={<Home />} />
+              <Route path="/estrategias" element={<Portfolio />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/merch" element={<Merch />} />
             </Routes>
             <Footer />
           </Layout>

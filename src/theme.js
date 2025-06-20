@@ -3,7 +3,7 @@ import { purple, orange } from '@mui/material/colors';
 
 const theme = createTheme({
   typography: {
-    fontFamily: "'Bloomer', 'Helvetica', 'Arial', sans-serif",
+    fontFamily: "'League Gothic', 'Roboto', 'Helvetica', 'Arial', sans-serif",
     h1: {
       fontWeight: 'bold',
       letterSpacing: '0.1em',

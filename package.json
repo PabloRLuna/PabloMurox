@@ -2,7 +2,7 @@
   "name": "content-creator-web",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://pablorluna.github.io/PabloMurox",
+  "homepage": "https://PabloRLuna.github.io/PabloMurox",
   "dependencies": {
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
@@ -21,9 +21,15 @@
     "react-stripe-js": "^1.1.5",
     "stripe": "^18.2.1"
   },
+  "proxy": {
+    "/api": {
+      "target": "http://localhost:5000",
+      "changeOrigin": true
+    }
+  },
   "scripts": {
-    "start": "set PUBLIC_URL=/PabloMurox && react-scripts start",
-    "build": "set PUBLIC_URL=/PabloMurox && react-scripts build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
@@ -46,5 +52,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
   }
 }
