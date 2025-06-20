@@ -2,7 +2,7 @@
   "name": "content-creator-web",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://pablorluna.github.io/PabloMurox",
+  "homepage": ".",
   "dependencies": {
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
@@ -23,7 +23,7 @@
   },
   "scripts": {
     "start": "set PUBLIC_URL=/PabloMurox/ && react-scripts start",
-    "build": "set PUBLIC_URL=/PabloMurox/ && react-scripts build",
+    "build": "set PUBLIC_URL=/PabloMurox && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
